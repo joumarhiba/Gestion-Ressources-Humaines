@@ -100,7 +100,7 @@ button {
 header {
   min-height: 100vh;
   width: 100%;
-  background: url("../assets/company-photo.jpg") no-repeat top center / cover;
+  background: url("../assets/business-people-in-casual-meeting.jpg") no-repeat top center / cover;
   position: relative;
 }
 
@@ -110,8 +110,7 @@ header {
   height: 100%;
   top: 0;
   left: 0;
-  /* background-color: #bfbfbf7c; */
-  /* background-color: rgba(43, 51, 59, 0.8); */
+  background-color: #bfbfbfa5;
   display: flex;
   justify-content: center;
   align-items: center;
