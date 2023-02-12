@@ -1,7 +1,7 @@
 package com.GRH.repository;
 
-import com.GRH.model.Admin;
+import com.GRH.model.Offre;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface AdminRepo extends MongoRepository<Admin, String> {
+public interface OffreRepo extends MongoRepository<Offre, String> {
 }
