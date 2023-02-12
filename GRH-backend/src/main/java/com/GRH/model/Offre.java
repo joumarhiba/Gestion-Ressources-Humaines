@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Document
 @Data
@@ -23,4 +24,6 @@ public class Offre {
     private LocalDate date_publication;
     @Enumerated
     private String status;
+    private String recruteurId;
+    private List<Application> applicationIds;
 }

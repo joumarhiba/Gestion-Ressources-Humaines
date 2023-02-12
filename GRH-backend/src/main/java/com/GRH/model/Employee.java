@@ -6,4 +6,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Employee extends User {
     private Double salaire;
     private String departement;
+    private String formationId;
 }

@@ -18,4 +18,6 @@ public class Application {
     private String title;
     private String cv;
     private String profile;
+    private String offreId;
+    private String candidatId;
 }

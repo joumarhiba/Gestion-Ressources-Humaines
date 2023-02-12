@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 @Data
 @AllArgsConstructor
@@ -19,5 +21,6 @@ public class Formation {
     private String description;
     private String duration;
     private int nb_student;
+    private List<String> employeeIds;
 
 }
