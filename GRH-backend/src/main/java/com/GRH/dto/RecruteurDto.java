@@ -1,16 +1,8 @@
 package com.GRH.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public record RecruteurDto(String id,String username, String email, String password) {
+    public RecruteurDto(String username, String email, String password){
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
-public class RecruteurDto {
-    private String id;
-    private String email;
-    private String username;
-    private String password;
+        this(null, username, email, password);
+    }
 }

@@ -20,7 +20,7 @@ public class Formation {
     private String topic;
     private String description;
     private String duration;
-    private int nb_student;
+    private int nbStudent;
     private List<String> employeeIds;
 
 }

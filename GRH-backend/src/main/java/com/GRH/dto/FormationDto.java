@@ -1,17 +1,7 @@
 package com.GRH.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
-public class FormationDto {
-    private String id;
-    private String topic;
-    private String description;
-    private String duration;
-    private int nb_student;
+public record FormationDto(String id, String topic, String description, String duration, int nbStudent) {
+    public FormationDto(String topic, String description, String duration, int nbStudent){
+        this(null,topic, description, duration,nbStudent);
+    }
 }

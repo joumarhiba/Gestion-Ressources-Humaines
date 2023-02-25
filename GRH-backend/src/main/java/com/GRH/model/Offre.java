@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Document
@@ -21,7 +22,7 @@ public class Offre {
     private String title;
     private String description;
     private String contrat;
-    private LocalDate date_publication;
+    private LocalDateTime datePublication;
     @Enumerated
     private String status;
     private String recruteurId;
