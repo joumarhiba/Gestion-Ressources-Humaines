@@ -14,8 +14,6 @@ public class Recruteur extends User{
     @OneToMany(mappedBy = "recruteur")
     private List<Offre> offres;
 
-    @ManyToOne
-    private Admin admin;
 
 
 //    @Override

@@ -16,6 +16,8 @@ import java.util.List;
 
 public class Offre {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String title;
     private String description;

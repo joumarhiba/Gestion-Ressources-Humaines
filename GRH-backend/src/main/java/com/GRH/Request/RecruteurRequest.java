@@ -1,5 +1,6 @@
 package com.GRH.request;
 
+import com.GRH.model.UserRole;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -11,4 +12,6 @@ public class RecruteurRequest {
     private String username;
     @NotNull
     private String password;
+    @NotNull
+    private UserRole role;
 }

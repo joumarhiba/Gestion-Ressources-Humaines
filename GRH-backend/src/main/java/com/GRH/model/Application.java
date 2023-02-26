@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 public class Application {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String status;
     private String title;

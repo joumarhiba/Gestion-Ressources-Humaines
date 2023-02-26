@@ -13,11 +13,7 @@ public class Admin extends User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Formation> formations;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Recruteur> recruteurs;
 
 
 //    @Override

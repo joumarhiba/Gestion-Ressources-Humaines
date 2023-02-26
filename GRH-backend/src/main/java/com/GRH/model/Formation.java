@@ -1,9 +1,6 @@
 package com.GRH.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +16,7 @@ import java.util.List;
 public class Formation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String topic;
     private String description;
@@ -26,7 +24,5 @@ public class Formation {
     private int nbStudent;
     @OneToMany(mappedBy = "formation")
     private List<Employee> employees;
-    @ManyToOne
-    private Admin admin;
 
 }
