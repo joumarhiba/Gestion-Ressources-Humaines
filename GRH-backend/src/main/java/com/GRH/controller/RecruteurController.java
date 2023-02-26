@@ -43,4 +43,11 @@ public class RecruteurController {
         response = new HttpResponse(OK.value(),savedRecruteur, "one recruteur was added Successfully");
       return new ResponseEntity<>(response, CREATED);
     }
+
+    @PutMapping
+    public ResponseEntity<HttpResponse> updateRecruteur(@RequestBody RecruteurDto recruteurDto) {
+        RecruteurDto updatedRecruteur = recruteurService.updateRecruteur(recruteurDto);
+        HttpResponse response = new HttpResponse(HttpStatus.OK.value(), updatedRecruteur, "Recruteur updated successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
