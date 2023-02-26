@@ -1,14 +1,17 @@
 package com.GRH.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.util.List;
 
-@Document
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,11 +19,14 @@ import java.util.List;
 public class Formation {
 
     @Id
-    private String id;
+    private Long id;
     private String topic;
     private String description;
     private String duration;
     private int nbStudent;
-    private List<String> employeeIds;
+    @OneToMany(mappedBy = "formation")
+    private List<Employee> employees;
+    @ManyToOne
+    private Admin admin;
 
 }

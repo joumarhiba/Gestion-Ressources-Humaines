@@ -1,14 +1,11 @@
-package com.GRH.Request;
+package com.GRH.request;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-
 public class RecruteurRequest {
-   @NotNull
+    @NotNull
     private String email;
     @NotNull
     private String username;

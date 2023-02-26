@@ -1,23 +1,25 @@
 package com.GRH.model;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class Application {
     @Id
-    private String id;
+    private Long id;
     private String status;
     private String title;
     private String cv;
     private String profile;
-    private String offreId;
-    private String candidatId;
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Offre offre;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private Candidat candidat;
 }

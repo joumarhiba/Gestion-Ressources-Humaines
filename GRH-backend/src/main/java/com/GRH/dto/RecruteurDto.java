@@ -1,8 +1,10 @@
 package com.GRH.dto;
 
-public record RecruteurDto(String id,String username, String email, String password) {
-    public RecruteurDto(String username, String email, String password){
+import com.GRH.model.UserRole;
 
-        this(null, username, email, password);
+public record RecruteurDto(String id, String username, String email, String password, UserRole role) {
+    public RecruteurDto(String username, String email, String password, UserRole role){
+
+        this(null, username, email, password, role);
     }
 }

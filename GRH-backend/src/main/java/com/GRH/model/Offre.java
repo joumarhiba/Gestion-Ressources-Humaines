@@ -1,30 +1,32 @@
 package com.GRH.model;
 
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Document
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class Offre {
     @Id
-    private String id;
+    private Long id;
     private String title;
     private String description;
     private String contrat;
     private LocalDateTime datePublication;
     @Enumerated
-    private String status;
-    private String recruteurId;
-    private List<Application> applicationIds;
+    private OffreStatus status;
+
+    @ManyToOne
+    private Recruteur recruteur;
+
+    @OneToMany(mappedBy = "offre")
+    private List<Application> applications;
 }

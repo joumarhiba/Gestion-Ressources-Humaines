@@ -1,9 +1,9 @@
 package com.GRH.repository;
 
 import com.GRH.model.Employee;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployeeRepo extends MongoRepository<Employee,String> {
+public interface EmployeeRepo extends JpaRepository<Employee,Long> {
 }

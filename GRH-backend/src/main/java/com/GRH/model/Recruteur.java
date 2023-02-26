@@ -1,11 +1,47 @@
 package com.GRH.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.*;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-
-@Document
+@Entity
 public class Recruteur extends User{
-    private List<Offre> offreIds;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "recruteur")
+    private List<Offre> offres;
+
+    @ManyToOne
+    private Admin admin;
+
+
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(getRole().name());
+//        return Collections.singletonList(simpleGrantedAuthority);
+//    }
+
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
 
 }
