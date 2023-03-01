@@ -24,7 +24,7 @@ public class FormationController {
 
 
     @GetMapping
-    ResponseEntity<HttpResponse> getFormations() {
+    public ResponseEntity<HttpResponse> getFormations() {
         List<FormationDto> formations = formationService.getAllFormations();
 
         response = new HttpResponse(HttpStatus.OK.value(),
@@ -32,6 +32,13 @@ public class FormationController {
                 "Successfully retrieved records"
         );
 
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<HttpResponse> getFormationById(@PathVariable Long id){
+        FormationDto formationDto = formationService.getFormationById(id);
+        response = new HttpResponse(OK.value(), formationDto, "One formation was retrieved");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

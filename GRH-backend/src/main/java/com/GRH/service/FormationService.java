@@ -23,6 +23,10 @@ public class FormationService {
         return formationMapper.formationToDto(formation);
     }
 
+    public FormationDto getFormationById(Long id){
+        Formation formation = formationRepo.findById(id).orElseThrow(() -> new ItemIdNotFoundException("this id Formation not found"));
+        return new FormationDto(formation.getTopic(), formation.getDescription(), formation.getDuration(), formation.getNbStudent());
+    }
 
     public List<FormationDto> getAllFormations() throws NoItemsFoundException {
         List<Formation> formations = formationRepo.findAll();

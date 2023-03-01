@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Offre {
     private String title;
     private String description;
     private String contrat;
-    private LocalDateTime datePublication;
+    private Date datePublication;
     @Enumerated
     private OffreStatus status;
 

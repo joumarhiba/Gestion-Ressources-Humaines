@@ -22,9 +22,8 @@ public class RecruteurService {
     private final RecruteurMapper recruteurMapper;
 
     public RecruteurDto createRecruteur(RecruteurDto recruteurDto){
-        recruteurMapper.dtoToRecruteur(recruteurDto).setRole(UserRole.RECRUTEUR);
-        Recruteur recruteur = recruteurRepository.save(recruteurMapper.dtoToRecruteur(recruteurDto));
-        log.info("----------------- "+recruteurMapper.dtoToRecruteur(recruteurDto));
+        RecruteurDto savedRecruteur = new RecruteurDto(recruteurDto.username(), recruteurDto.email(), recruteurDto.password(), UserRole.RECRUTEUR);
+        Recruteur recruteur = recruteurRepository.save(recruteurMapper.dtoToRecruteur(savedRecruteur));
         return recruteurMapper.recruteurToDto(recruteur);
     }
 
