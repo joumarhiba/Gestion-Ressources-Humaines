@@ -47,7 +47,7 @@ public class OffreService {
     }
 
     public OffreDto updateOffre(OffreDto offreDto) {
-        Offre offre = offreRepo.findById(Long.parseLong(offreDto.id()))
+        Offre offre = offreRepo.findById(offreDto.id())
                 .orElseThrow(() -> new ItemIdNotFoundException("this id Offre not found"));
         Offre updatedOffre = offreRepo.save(offreMapper.dtoToOffre(offreDto));
         return offreMapper.offreToDto(updatedOffre);
