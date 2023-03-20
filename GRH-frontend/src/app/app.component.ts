@@ -11,6 +11,6 @@ export class AppComponent implements OnInit {
   title = 'GRH-frontend';
 
   ngOnInit(): void {
-    greetings();
+    // greetings();
 }
 }
