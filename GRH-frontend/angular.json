@@ -90,6 +90,7 @@
               "src/styles.css"
             ],
             "scripts": [
+              "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js",
               "src/assets/app.js"
             ]
           }
