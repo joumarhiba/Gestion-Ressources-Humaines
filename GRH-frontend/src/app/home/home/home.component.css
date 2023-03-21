@@ -84,6 +84,20 @@ button {
   transform: translateY(-9px);
 }
 
+.card {
+  padding: 0.6rem;
+  margin-top: 2.6rem;
+}
+.card-2 {
+  padding: 0.6rem;
+  margin-bottom: 2.6rem;
+}
+.card-4 {
+  padding: 0.6rem;
+  margin-top: -2.6rem;
+  margin-bottom: 5.2rem;
+}
+
 .bar:after {
   transform: translateY(9px);
 }
@@ -165,6 +179,25 @@ header {
   cursor: pointer;
   transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
 }
+
+/* slider start */
+.slider-container {
+  flex-wrap: nowrap;
+}
+
+.slider-item {
+  margin-right: 1%;
+}
+
+.arrow {
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+/* slider end */
 
 @keyframes main-animation {
   from {
