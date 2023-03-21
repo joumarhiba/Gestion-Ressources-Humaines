@@ -8,7 +8,9 @@ module.exports = {
       // container: {
       //   maxWidth:'1700px',
       // }
+      
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }

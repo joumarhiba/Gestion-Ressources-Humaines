@@ -3,12 +3,14 @@
   width: 100%;
   overflow-x: hidden;
   transform-style: preserve-3d;
+  padding: 0;
 }
 .scroll-animation {
   display: flex;
   justify-content: center;
   justify-items: center;
   margin-top: 10%;
+  color: #fff;
 }
 .navbar {
   position: fixed;
@@ -66,7 +68,7 @@
   position: absolute;
   width: inherit;
   height: inherit;
-  background-color: #000;
+  background-color: #111;
   transition: 0.5s;
 }
 
@@ -116,7 +118,7 @@ header {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #bfbfbfa5;
+  background-color: #bfbfbfaa;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,7 +127,6 @@ header {
 .inner {
   max-width: 35rem;
   text-align: center;
-  color: #111;
   padding: 0 2rem;
 }
 
@@ -135,20 +136,7 @@ header {
 
 .title {
   font-size: 2.7rem;
-}
-
-.btn {
-  margin-top: 3rem;
-  padding: 0.6rem 1.8rem;
-  background-color: rgb(29, 78 ,216);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-  margin-bottom: 10%;
-
+  padding-top: 14rem;
 }
 
 .container.active .bar {
@@ -195,6 +183,24 @@ header {
 }
 
 /* slider end */
+
+/* employee */
+.employee-img {
+  width: 55%;
+  height: 90%;
+}
+.etiquette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1.3rem;
+}
+
+.employee-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 @keyframes main-animation {
   from {
@@ -276,7 +282,7 @@ ul {
   transform-style: preserve-3d;
   transform-origin: left;
   transition: 0.5s;
-  background-color: white;
+  background-color: rgb(12 ,74 ,110);
 }
 
 .shadow.one {
