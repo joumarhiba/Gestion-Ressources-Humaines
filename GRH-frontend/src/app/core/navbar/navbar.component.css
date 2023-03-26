@@ -1,0 +1,130 @@
+.navigation {
+  position: relative;
+}
+
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+   position:   absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 2000;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navigation__background {
+  width: 60px;
+  height: 60px;
+  /* border-radius: 50%; */
+  background: #eee;
+  /* background-image: radial-gradient(#5e0094, #003494); */
+  position:    absolute;
+  top: 45px;
+  right: 45px;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.navigation__list a {
+    color: rgb(29, 78 ,216, 0.8);
+  } 
+
+.navigation__list a:hover {
+    color: rgb(29, 78 ,216);
+  }
+.navigation__nav {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.256, 1.55);
+}
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+.navigation__link {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 300;
+  color: #111;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: all 0.4s;
+}
+
+.navigation__link:hover {
+  color: #111366;
+  transform: translateX(10px);
+}
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(1.6);
+  transform: scale(30);
+  overflow: hidden;
+}
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 35px;
+}
+.navigation__icon,
+.navigation__icon::before,
+.navigation__icon::after {
+  width: 33px;
+  height: 2px;
+  background: rgb(29, 78 ,216, 0.8);
+  display: inline-block;
+}
+.navigation__icon::before,
+.navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation__icon::before {
+  top: -7px;
+}
+.navigation__icon::after {
+  top: 7px;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -9px;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 9px;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background: transparent;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}

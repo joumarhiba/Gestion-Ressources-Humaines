@@ -1,0 +1,27 @@
+
+
+<div class="navigation pb-4">
+    <h1 class="p-4 w-68">Easy<span>RH</span></h1>
+    <input type="checkbox" class="navigation__checkbox" id="toggle">
+    <label for="toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            <li><a routerLink="/" class="navigation__link"> Home</a></li>
+            <li *ngIf="token">
+                <a routerLink="/offres" class="navigation__link">Offres</a>
+            </li>
+            <li *ngIf="token">
+                <a href="#" class="navigation__link">Formations</a>
+            </li>
+            <li *ngIf="!token">
+                <a role="button" (click)="login()" class="navigation__link">Login</a>
+            </li>
+            <li *ngIf="token">
+                <a role="button" (click)="logout()" class="navigation__link" >logout {{name}}</a></li>
+        </ul>
+    </nav>
+</div>

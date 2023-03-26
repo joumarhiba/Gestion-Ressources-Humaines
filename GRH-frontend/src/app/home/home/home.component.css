@@ -111,7 +111,7 @@ header {
   background: url("../../../assets/business-people-in-casual-meeting.jpg") no-repeat top center / cover;
   position: relative;
 }
-
+/* 
 .overlay {
   position: absolute;
   width: 100%;
@@ -124,20 +124,10 @@ header {
   align-items: center;
 }
 
-.inner {
-  max-width: 35rem;
-  text-align: center;
-  padding: 0 2rem;
-}
-
-.description {
-  margin: 2rem 0;
-}
-
 .title {
   font-size: 2.7rem;
   padding-top: 14rem;
-}
+} */
 
 .container.active .bar {
   transform: rotate(360deg);
@@ -213,6 +203,7 @@ header {
 }
 
 .links {
+  background-color: chocolate;
   position: absolute;
   width: 30%;
   right: 0;
@@ -243,9 +234,9 @@ ul {
   animation: hide 0.5s forwards ease;
 }
 
-.links a:hover {
+/* .links a:hover {
   color: rgb(29, 78 ,216);
-}
+} */
 
 .container.active .links a {
   animation: appear 0.5s forwards ease var(--i);
@@ -340,3 +331,6 @@ ul {
 .container.active .main:hover {
   transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
 }
+
+
+
