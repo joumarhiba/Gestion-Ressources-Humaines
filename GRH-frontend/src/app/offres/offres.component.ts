@@ -5,6 +5,7 @@ import { OffreService } from '../services/offre.service';
 import { Offre } from '../services/Offre';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ApplicationFormComponent } from '../application-form/application-form.component';
+import { SharedService } from '../services/shared.service';
 
 
 
@@ -15,21 +16,25 @@ import { ApplicationFormComponent } from '../application-form/application-form.c
 })
 export class OffresComponent implements OnInit {
 
-  public offreToUpdate: Offre = {
-    id: 0,
-    title: '',
-    description: '',
-    status: 0,
-    contrat: '',
-    datePublication: '',
-    recruteur_id: undefined
-  }
+  
   public offres: Offre[]= [];
-
+offreToUpdate:Offre = {
+  id: 0,
+  title: '',
+  description: '',
+  contrat: '',
+  datePublication: '',
+  recruteur_id: undefined,
+  status: 0
+}
+message:any = {
+ id:12,
+ name:"zfzef"
+}
 
   modalRef?: BsModalRef;
   constructor(private offreService: OffreService, private modalService: BsModalService
-    // , private modalService: BsModalService
+    , private shared: SharedService
     ) {}
   ngOnInit(): void {
     this.getOffres();
@@ -66,31 +71,17 @@ export class OffresComponent implements OnInit {
 
 
   open(offre: Offre): void {
-    this.modalRef = this.modalService.show(ApplicationFormComponent);
     this.offreToUpdate = offre;
-    console.log('from open method :');
+    this.message = offre;
+    this.shared.setMessage(this.message)
+    console.log('setMsg : 0'+this.shared.setMessage(this.message)+' & msg == '+this.message.id);
+    
+    // this.shared.setMessage(offre)
+    // console.log('from setOffreToUpdate method : '+this.shared.setOffreToUpdate(offre));
     console.log('offreToUpdate : '+this.offreToUpdate.id);
     console.log('offre : '+offre.id);  
+    this.modalRef = this.modalService.show(ApplicationFormComponent);
 
   }
-  // open(content) {
-	// 	this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-	// 		(result) => {
-	// 			this.closeResult = `Closed with: ${result}`;
-	// 		},
-	// 		(reason) => {
-	// 			this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-	// 		},
-	// 	);
-	// }
-
-	// private getDismissReason(reason: any): string {
-	// 	if (reason === ModalDismissReasons.ESC) {
-	// 		return 'by pressing ESC';
-	// 	} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-	// 		return 'by clicking on a backdrop';
-	// 	} else {
-	// 		return `with: ${reason}`;
-	// 	}
-	// }
+  
 }

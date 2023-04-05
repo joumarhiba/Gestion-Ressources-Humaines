@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="dateOfBirth">Title</label>
             <div class="input-group">
-                <input class="form-control" type="text" #title [(ngModel)]="offreToUpdate.title" name="title" autocomplete="off" />
+                <input class="form-control" type="text" #title [(ngModel)]="message.title" name="title" autocomplete="off" />
             </div>
         </div>
         <div class="mb-3">
@@ -21,13 +21,13 @@
         <div class="mb-3">
             <label for="dateOfBirth">Type de contrat</label>
             <div class="input-group">
-                <input  class="form-control" type="text"  placeholder="" #contrat [(ngModel)]="offreToUpdate.contrat"  name="contrat" autocomplete="off" />
+                <input  class="form-control" type="text"  placeholder="" #contrat [(ngModel)]="message.contrat"  name="contrat" autocomplete="off" />
             </div>
         </div>
         <div class="mb-3">
             <label for="dateOfBirth">offre_id</label>
             <div class="input-group">
-                <input class="form-control" #id placeholder=""  [(ngModel)]="offreToUpdate.id"  name="id" autocomplete="off" />
+                <input class="form-control" #id placeholder=""  [(ngModel)]="message.id"  name="id" autocomplete="off" />
             </div>
         </div>
     </form>

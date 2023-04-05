@@ -1,15 +1,16 @@
 import { OffreService } from './../services/offre.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Offre } from '../services/Offre';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-application-form',
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent {
+export class ApplicationFormComponent implements OnInit {
 
   // @Input()
   // offreToUpdate!: Offre;
@@ -23,14 +24,21 @@ export class ApplicationFormComponent {
     recruteur_id: undefined
   }
 
+  message : any
 
-  constructor(public modalRef: BsModalRef,private offreService: OffreService) {}
-
-  public edit(offre: Offre) : void{
-    this.offreToUpdate = offre;
+  constructor(public modalRef: BsModalRef,private offreService: OffreService, private shared: SharedService) {}
+  ngOnInit(): void {
+    this.message = this.shared.getMessage();
+    console.log(this.message);
+    
   }
 
+  
+  
+
   public updateOffre() {
+    console.log("getoffreToUpdate ===========> "+this.offreToUpdate);
+    
     document.getElementById('close-modal')?.click();
     this.offreService.updateOffre(this.offreToUpdate).subscribe(
   (response: Offre) => {
