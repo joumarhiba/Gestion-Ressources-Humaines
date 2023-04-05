@@ -1,16 +1,19 @@
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../app/home/home/home.component';
 import { OffresComponent } from './offres/offres.component';
+import { ApplicationFormComponent } from './application-form/application-form.component';
 
 
 const routes: Routes = [
   // { path: '', loadChildren: () => import('../app/home/home/home.component').then(m => m.HomeComponent) },
   { path: '', component: HomeComponent},
-  { path: 'offres', component:OffresComponent, canActivate: [AuthGuard]},
+  // { path: 'offre', component:OffresComponent},
+  { path: 'offre', component:OffresComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
+  { path: 'postuler', component:ApplicationFormComponent},
   { path: '**', redirectTo: '', pathMatch:'full'}
 ];
 

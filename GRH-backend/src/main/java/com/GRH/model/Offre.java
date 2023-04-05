@@ -30,6 +30,6 @@ public class Offre {
     @ManyToOne
     private Recruteur recruteur;
 
-    @OneToMany(mappedBy = "offre")
+    @OneToMany(mappedBy = "offre", cascade = CascadeType.ALL)
     private List<Application> applications;
 }

@@ -1,3 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-image: radial-gradient(
+      circle at 29% 55%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 4%,
+      transparent 4%,
+      transparent 44%,
+      transparent 44%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 85% 89%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 51%,
+      transparent 51%,
+      transparent 52%,
+      transparent 52%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 6% 90%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 53%,
+      transparent 53%,
+      transparent 64%,
+      transparent 64%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 35% 75%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 6%,
+      transparent 6%,
+      transparent 98%,
+      transparent 98%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 56% 75%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 16%,
+      transparent 16%,
+      transparent 23%,
+      transparent 23%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 42% 0%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 3%,
+      transparent 3%,
+      transparent 26%,
+      transparent 26%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 29% 28%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 51%,
+      transparent 51%,
+      transparent 75%,
+      transparent 75%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 77% 21%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 35%,
+      transparent 35%,
+      transparent 55%,
+      transparent 55%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 65% 91%,
+      hsla(329, 0%, 99%, 0.05) 0%,
+      hsla(329, 0%, 99%, 0.05) 46%,
+      transparent 46%,
+      transparent 76%,
+      transparent 76%,
+      transparent 100%
+    ),
+    linear-gradient(45deg, rgb(83, 91, 235), rgb(76, 11, 174));
+}
+
+.logo {
+  font-size: 40px;
+  padding: 40px;
+  color: #fff;
+}
+
+.logo span { color: #d882fa;}
+
 .navigation {
   position: relative;
 }
@@ -10,11 +111,12 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: transparent;
-   position:   absolute;
+  background: #fff;
+  position: fixed;
   top: 40px;
   right: 40px;
   z-index: 2000;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
   text-align: center;
   cursor: pointer;
   transition: all 0.2s;
@@ -23,38 +125,34 @@
 .navigation__background {
   width: 60px;
   height: 60px;
-  /* border-radius: 50%; */
-  background: #eee;
+  border-radius: 50%;
+  background-color: rgb(67, 56, 202);
   /* background-image: radial-gradient(#5e0094, #003494); */
-  position:    absolute;
+  position: fixed;
   top: 45px;
   right: 45px;
   z-index: 1000;
   transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
 }
-.navigation__list a {
-    color: rgb(29, 78 ,216, 0.8);
-  } 
 
-.navigation__list a:hover {
-    color: rgb(29, 78 ,216);
-  }
 .navigation__nav {
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1500;
+
   opacity: 0;
   visibility: hidden;
   width: 0;
+
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.256, 1.55);
 }
 .navigation__list {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-20%, -50%);
+  transform: translate(-30%, -50%);
   list-style: none;
   text-align: center;
   width: 100%;
@@ -64,7 +162,7 @@
   display: inline-block;
   font-size: 20px;
   font-weight: 300;
-  color: #111;
+  color: #fff;
   padding: 20px;
   text-transform: uppercase;
   text-decoration: none;
@@ -73,13 +171,12 @@
 }
 
 .navigation__link:hover {
-  color: #111366;
+  color: #a275f7;
   transform: translateX(10px);
 }
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(1.6);
   transform: scale(30);
-  overflow: hidden;
 }
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
@@ -93,9 +190,9 @@
 .navigation__icon,
 .navigation__icon::before,
 .navigation__icon::after {
-  width: 33px;
-  height: 2px;
-  background: rgb(29, 78 ,216, 0.8);
+  width: 40px;
+  height: 3px;
+  background: #ad88f1;
   display: inline-block;
 }
 .navigation__icon::before,
@@ -106,16 +203,16 @@
   transition: all 0.2s;
 }
 .navigation__icon::before {
-  top: -7px;
+  top: -10px;
 }
 .navigation__icon::after {
-  top: 7px;
+  top: 10px;
 }
 .navigation__button:hover .navigation__icon::before {
-  top: -9px;
+  top: -12px;
 }
 .navigation__button:hover .navigation__icon::after {
-  top: 9px;
+  top: 12px;
 }
 .navigation__checkbox:checked + .navigation__button .navigation__icon {
   background: transparent;

@@ -27,4 +27,8 @@ public class HttpResponse {
         this.msg = msg;
     }
 
+    public HttpResponse(){
+        super();
+    }
+
 }

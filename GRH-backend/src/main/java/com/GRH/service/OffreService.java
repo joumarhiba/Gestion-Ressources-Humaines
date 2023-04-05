@@ -40,7 +40,7 @@ public class OffreService {
         }
         List<OffreDto> offreDtos =
                 offres.stream().map(offre -> new OffreDto(
-                                offre.getTitle(),offre.getDescription(), offre.getContrat(),offre.getDatePublication(), offre.getStatus()
+                                offre.getId(), offre.getTitle(),offre.getDescription(), offre.getContrat(),offre.getDatePublication(), offre.getStatus()
                         ))
                         .collect(Collectors.toList());
         return offreDtos;
