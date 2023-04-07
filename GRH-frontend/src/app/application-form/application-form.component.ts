@@ -12,6 +12,11 @@ import { SharedService } from '../services/shared.service';
 })
 export class ApplicationFormComponent implements OnInit {
 
+
+
+
+  
+
   // @Input()
   // offreToUpdate!: Offre;
   public offreToUpdate: Offre = {
@@ -36,7 +41,7 @@ export class ApplicationFormComponent implements OnInit {
   
   
 
-  public updateOffre() {
+  public addApplication() {
     console.log("getoffreToUpdate ===========> "+this.offreToUpdate);
     
     document.getElementById('close-modal')?.click();

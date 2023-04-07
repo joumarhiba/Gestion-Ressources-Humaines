@@ -5,30 +5,48 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #updateOffreForm="ngForm" (ngSubmit)="updateOffre()">
+    <form #addApplicationForm="ngForm" (ngSubmit)="addApplication()">
         <div class="mb-3">
-            <label for="dateOfBirth">Title</label>
+            <label>Title</label>
             <div class="input-group">
                 <input class="form-control" type="text" #title [(ngModel)]="message.title" name="title" autocomplete="off" />
             </div>
         </div>
         <div class="mb-3">
-            <label for="dateOfBirth">Profil</label>
+            <label>Profil</label>
             <div class="input-group">
                 <input  class="form-control" type="text" placeholder="" #profile  name="profile" autocomplete="off" />
             </div>
         </div>
         <div class="mb-3">
-            <label for="dateOfBirth">Type de contrat</label>
+            <label>Type de contrat</label>
             <div class="input-group">
                 <input  class="form-control" type="text"  placeholder="" #contrat [(ngModel)]="message.contrat"  name="contrat" autocomplete="off" />
             </div>
         </div>
         <div class="mb-3">
-            <label for="dateOfBirth">offre_id</label>
+            <label>Ville</label>
             <div class="input-group">
-                <input class="form-control" #id placeholder=""  [(ngModel)]="message.id"  name="id" autocomplete="off" />
+                <input class="form-control" #ville placeholder="" type="text"  name="ville" autocomplete="off" />
             </div>
+        </div>
+        <div class="mb-3">
+            <label>Année d'expérience</label>
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>moins d'un an</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>plus de 5</option>
+                </select>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label>offre_id</label>
+            <input class="form-control" #id placeholder=""  [(ngModel)]="message.id"  name="id" autocomplete="off" />
         </div>
     </form>
 </div>
