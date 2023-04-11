@@ -28,8 +28,7 @@ offreToUpdate:Offre = {
   status: 0
 }
 message:any = {
- id:12,
- name:"zfzef"
+ email : "joumarhiba@gmail.com"
 }
 
   modalRef?: BsModalRef;
@@ -71,10 +70,12 @@ message:any = {
 
 
   open(offre: Offre): void {
+    
     this.offreToUpdate = offre;
     this.message = offre;
     this.shared.setMessage(this.message)
-    console.log('setMsg : 0'+this.shared.setMessage(this.message)+' & msg == '+this.message.id);
+    this.message['email'] = 'joumarhiba@gmail.com'
+    console.log('setMsg : 0 '+this.message.email+' & msg == '+this.message.contrat);
     
     // this.shared.setMessage(offre)
     // console.log('from setOffreToUpdate method : '+this.shared.setOffreToUpdate(offre));

@@ -2,6 +2,6 @@ export interface Application {
     id: number,
     title: string,
     profile: string
-    offre: number
+    offre_id: number
     candidat: number
 }

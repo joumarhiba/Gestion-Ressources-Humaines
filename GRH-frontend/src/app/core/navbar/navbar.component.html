@@ -15,7 +15,7 @@
                 <a routerLink="/offre" class="navigation__link">Offres</a>
             </li>
             <li *ngIf="token">
-                <a href="#" class="navigation__link">Formations</a>
+                <a routerLink="/espaceRecruteur" class="navigation__link">escpace recruteur</a>
             </li>
             <li *ngIf="!token">
                 <a role="button" (click)="login()" class="navigation__link">Login</a>

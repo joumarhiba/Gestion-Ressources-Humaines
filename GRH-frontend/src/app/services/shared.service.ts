@@ -7,9 +7,9 @@ import { Offre } from './Offre';
 export class SharedService {
 
   constructor() { }   
-  message: any 
+  message: any
 
-  setMessage(data: any){
+  setMessage(data: Object){
     this.message = data
   }
   getMessage(){

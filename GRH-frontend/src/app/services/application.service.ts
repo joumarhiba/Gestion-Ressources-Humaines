@@ -12,8 +12,12 @@ export class ApplicationService {
 
   constructor(private http: HttpClient) { }
 
-  public addOffre(application: Application): Observable<Application>{
+  public addApplication(application: Application): Observable<Application>{
     return this.http.post<any>(`${this.apiServerUrl}/api/v1/application`, application);
+}
+
+public getUserInfo() : Observable<any>{
+  return this.http.get<any>(`${this.apiServerUrl}/api/v1/auth`)
 }
 
 }

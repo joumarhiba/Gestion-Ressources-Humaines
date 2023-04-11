@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../app/home/home/home.component';
 import { OffresComponent } from './offres/offres.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
+import { EspaceRecruteurComponent } from './espace-recruteur/espace-recruteur.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   // { path: 'offre', component:OffresComponent},
   { path: 'offre', component:OffresComponent, canActivate: [AuthGuard]},
+  { path: 'espaceRecruteur', component:EspaceRecruteurComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'postuler', component:ApplicationFormComponent},
   { path: '**', redirectTo: '', pathMatch:'full'}

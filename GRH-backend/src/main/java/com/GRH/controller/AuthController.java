@@ -8,11 +8,17 @@ import com.GRH.util.AuthenticationResponse;
 import com.GRH.util.IntrospectResponse;
 import com.GRH.util.Response;
 import lombok.RequiredArgsConstructor;
+import org.keycloak.KeycloakPrincipal;
+import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
+import org.keycloak.representations.AccessToken;
+import org.keycloak.representations.IDToken;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -41,4 +47,6 @@ public class AuthController {
     public ResponseEntity<IntrospectResponse> introspect(@RequestBody TokenRequest token){
         return service.introspect(token);
     }
+
+
 }
