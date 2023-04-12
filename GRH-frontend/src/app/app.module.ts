@@ -14,6 +14,7 @@ import { HomeLayoutComponent } from './core/home-layout/home-layout.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { ModalModule  } from 'ngx-bootstrap/modal';
 import { EspaceRecruteurComponent } from './espace-recruteur/espace-recruteur.component';
+import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EspaceRecruteurComponent } from './espace-recruteur/espace-recruteur.co
     NavbarComponent,
     HomeLayoutComponent,
     ApplicationFormComponent,
-    EspaceRecruteurComponent
+    EspaceRecruteurComponent,
+    EspaceAdminComponent
   ],
   imports: [
     BrowserModule,

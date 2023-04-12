@@ -20,4 +20,29 @@ public getUserInfo() : Observable<any>{
   return this.http.get<any>(`${this.apiServerUrl}/api/v1/auth`)
 }
 
+public getAllReceivedApplications(): Observable<number>{
+  return this.http.get<number>(`${this.apiServerUrl}/api/v1/application/all-received`)
+} 
+
+public getReceivedApplications(): Observable<number>{
+  return this.http.get<number>(`${this.apiServerUrl}/api/v1/application/received`)
+}
+
+public getTrashedApplications(): Observable<number>{
+  return this.http.get<number>(`${this.apiServerUrl}/api/v1/application/trashed`)
+}
+
+public getUploadedApplications(): Observable<number>{
+  return this.http.get<number>(`${this.apiServerUrl}/api/v1/application/uploaded`)
+}
+
+public trashApplication(id: number): Observable<number>{
+  return this.http.put<number>(`${this.apiServerUrl}/api/v1/application`, id)
+}
+
+
+public uploadApplication(id: number): Observable<number>{
+  return this.http.put<number>(`${this.apiServerUrl}/api/v1/application/change-to-upload`, id)
+}
+
 }

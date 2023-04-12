@@ -1,9 +1,13 @@
 package com.GRH.service;
 
 import com.GRH.dto.ApplicationDto;
-import com.GRH.dto.OffreDto;
+
+import com.GRH.exception.ItemIdNotFoundException;
 import com.GRH.exception.NoItemsFoundException;
+import com.GRH.mapper.ApplicationMapper;
 import com.GRH.model.Application;
+
+import com.GRH.model.Offre;
 import com.GRH.repository.ApplicationRepo;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -24,6 +28,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ApplicationService {
     private final ApplicationRepo applicationRepo;
+    private final ApplicationMapper applicationMapper;
 //
 
     public Application createApplication(Application application){
@@ -31,36 +36,55 @@ public class ApplicationService {
         application.setStatus("Reçu");
         Application applicationSaved = applicationRepo.save(application);
         return applicationSaved;
+    }
 
+    public String trashApplicationById(Long id){
+         applicationRepo.updateApplicationSetStatusForId(id);
+         return "le status est changé pour "+ id;
+    }
+
+    public String uploadApplicationById(Long id){
+        applicationRepo.updateApplicationStatusForId(id);
+        return "le status est changé pour "+ id;
+    }
+
+    public List<ApplicationDto> getAllReceivedApps() throws NoItemsFoundException {
+        List<Application> applications = applicationRepo.findAllReceivedApplication();
+        if(applications.isEmpty()){
+            throw new NoItemsFoundException("No offer Record was Found in DB...");
+        }
+        List<ApplicationDto> applicationDtos =
+                applications.stream().map(app -> new ApplicationDto(
+                                app.getId(), app.getStatus(), app.getTitle(), app.getProfile(), app.getCv()
+                        ))
+                        .collect(Collectors.toList());
+        return applicationDtos;
     }
 
     public Long getReceivedApplications() throws NoItemsFoundException {
         Long receivedApplication = applicationRepo.findReceivedApplication();
+        Long allApplication = applicationRepo.findAllApplication();
         if(receivedApplication == 0){
             throw new NoItemsFoundException("No application Record was Found in DB...");
         }
-        return receivedApplication;
+        return receivedApplication * 100 / allApplication;
     }
 
-    public int getTrashedApplications() throws NoItemsFoundException {
+    public Long getTrashedApplications() throws NoItemsFoundException {
         int trashedApplication = applicationRepo.findTrashedApplication();
+        Long allApplication = applicationRepo.findAllApplication();
         if(trashedApplication == 0){
             throw new NoItemsFoundException("No application Record was Found in DB...");
         }
-        log.info("trashed ===== "+trashedApplication);
-        return trashedApplication;
+        return trashedApplication * 100 / allApplication ;
     }
-    public List<ApplicationDto> getAllTrashedApplications() throws NoItemsFoundException {
-        List<Application> trashedApplication = applicationRepo.findAllTrashedApplication();
-        if(trashedApplication.isEmpty()){
-            throw new NoItemsFoundException("No offer Record was Found in DB...");
+    public Long getUploadedApplications() throws NoItemsFoundException {
+        Long uploadedApplication = applicationRepo.findUploadedApplication();
+        Long allApplication = applicationRepo.findAllApplication();
+        if(uploadedApplication == 0) {
+            throw new NoItemsFoundException("No application Record was Found in DB...");
         }
-        List<ApplicationDto> offreDtos =
-                trashedApplication.stream().map(offre -> new ApplicationDto(
-                                offre.getId(), offre.getStatus(), offre.getTitle(),offre.getProfile(), offre.getCv()
-                        ))
-                        .collect(Collectors.toList());
-        return offreDtos;
+        return uploadedApplication * 100 / allApplication ;
     }
 
 

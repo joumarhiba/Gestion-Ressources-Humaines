@@ -39,6 +39,12 @@ public class ApplicationController {
         return new ResponseEntity<>(response, CREATED);
     }
 
+    @GetMapping("/all-received")
+    ResponseEntity<HttpResponse> getAllReceivedApplications() {
+        List<ApplicationDto> applicationDtos = applicationService.getAllReceivedApps();
+        response = new HttpResponse(HttpStatus.OK.value(), Collections.singletonMap("application", applicationDtos),"All received application got Successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
     @GetMapping("/received")
     ResponseEntity<HttpResponse> getReceivedApplications() {
         Long applicationDtos = applicationService.getReceivedApplications();
@@ -47,8 +53,29 @@ public class ApplicationController {
     }
     @GetMapping("/trashed")
     ResponseEntity<HttpResponse> getTrashedApplications() {
-        int trashedApplications = applicationService.getTrashedApplications();
+        Long trashedApplications = applicationService.getTrashedApplications();
         response = new HttpResponse(HttpStatus.OK.value(), Collections.singletonMap("application", trashedApplications),"All trashed application are retrieved Successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<HttpResponse> trashApplication(@RequestBody Long id){
+        String application = applicationService.trashApplicationById(id);
+        response = new HttpResponse(HttpStatus.OK.value(), Collections.singletonMap("application", application),"status is changed Successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PutMapping("/change-to-upload")
+    public ResponseEntity<HttpResponse> uploadApplication(@RequestBody Long id){
+        String application = applicationService.uploadApplicationById(id);
+        response = new HttpResponse(HttpStatus.OK.value(), Collections.singletonMap("application", application),"status is changed Successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/uploaded")
+    ResponseEntity<HttpResponse> getUploadedApplications() {
+        Long uploadedApplications = applicationService.getUploadedApplications();
+        response = new HttpResponse(HttpStatus.OK.value(), Collections.singletonMap("application", uploadedApplications),"All uploaded application are retrieved Successfully");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

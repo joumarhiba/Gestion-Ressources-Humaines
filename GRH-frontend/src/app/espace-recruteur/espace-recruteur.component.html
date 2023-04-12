@@ -1,9 +1,10 @@
+<app-navbar></app-navbar>
 <div class="w-full flex items-center justify-center">
     <div class="py-4 sm:py-6 md:py-8 bg-white  rounded-lg">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 xl:px-10 gap-y-8 gap-x-12 2xl:gap-x-28">
             <div class="w-full border-1 border-indigo-700 p-3 bg-gray-100 rounded-lg ">
-                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-indigo-700 uppercase">Total des Offres Reçues</p>
-                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-indigo-700 mt-3 md:mt-5">89.5%</p>
+                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-indigo-700 uppercase">Total des candidatures Reçues</p>
+                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-indigo-700 mt-3 md:mt-5">{{received}}%</p>
                 <div class="flex flex-col md:w-64">
                     <div class="w-full flex justify-end"> 
                         <div class="flex items-center">
@@ -21,8 +22,8 @@
                <!-- <img src="../../assets/application.png" width="10%" height="10%" alt=""> -->
             </div>
             <div class="w-full bg-indigo-700 rounded-lg p-3">
-                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-gray-200 uppercase">Total des offres téléchargées</p>
-                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-gray-100 mt-3 md:mt-5">4545</p>
+                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-gray-200 uppercase">Total des candidatures validées</p>
+                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-gray-100 mt-3 md:mt-5">{{uploaded}}%</p>
                 <div class="flex flex-col">
                     <div class="h-4"></div>
                     <div class="md:w-64 mt-2.5">
@@ -33,8 +34,8 @@
                 </div>
             </div>
             <div class="w-full border-1 border-indigo-700 p-3 bg-gray-100 rounded-lg ">
-                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-indigo-700 uppercase">Total des Offres Supprimées</p>
-                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-indigo-700 mt-3 md:mt-5">8966</p>
+                <p tabindex="0" class="focus:outline-none text-xs md:text-sm font-medium leading-none text-indigo-700 uppercase">Total des candidatures Supprimées</p>
+                <p tabindex="0" class="focus:outline-none text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-3 text-indigo-700 mt-3 md:mt-5">{{trashed}}%</p>
                 <div class="flex flex-col md:w-64">
                     <div class="w-full flex justify-end">
                         <div class="flex items-center">
@@ -49,6 +50,77 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- table -->
+<div class="overflow-x-auto">
+    <div class="min-w-screen min-h-screen flex items-center justify-center font-sans overflow-hidden">
+        <div class="w-full lg:w-5/6">
+            <div class="bg-white shadow-md rounded my-6">
+                <table class="min-w-max w-full table-auto">
+                    <thead>
+                        <tr class="bg-indigo-700 text-white uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Numéro</th>
+                            <th class="py-3 px-6 text-left">Titre d'offre</th>
+                            <th class="py-3 px-6 text-center">Profil</th>
+                            <th class="py-3 px-6 text-center">Status</th>
+                            <th class="py-3 px-6 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light" *ngFor="let app of result">
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="mr-2">
+                                       
+                                    </div>
+                                    <span class="font-medium">{{app.id}}</span>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-left">
+                                <div class="flex items-center">
+                                    <div class="mr-2">
+                                    </div>
+                                    <span> {{app.title}} </span>
+                                </div>
+                            </td>
+                            <td class="py-3 px-6 text-center">
+                                <div class="flex items-center justify-center">{{app.profile}}
+                                 </div>
+                            </td>
+                            <td class="py-3 px-6 text-center">
+                                <span *ngIf="app.status == 'Uploaded'" class="bg-indigo-300 text-indigo-700 py-1 px-3 rounded-full text-xs">Validated</span>
+                                <span *ngIf="app.status == 'Reçu'" class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">{{app.status}}</span>
+                            </td>
+                            <td class="py-3 px-6 text-center">
+                                <div class="flex item-center justify-center">
+                                    <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg> -->
+                                    </div>
+                                    <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" (click)="uploadApplication(app.id)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+                                            <path d="M9 16.2l-4.8-4.7c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0l4.1 4 8.2-8.1c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-9.3 9.2c-.4.5-1 .5-1.4.1z"/>
+                                          </svg>
+                                    </div>
+                                    <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" (click)="trashApplication(app.id)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
