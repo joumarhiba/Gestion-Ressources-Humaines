@@ -4,101 +4,16 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-  background-image: radial-gradient(
-      circle at 29% 55%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 4%,
-      transparent 4%,
-      transparent 44%,
-      transparent 44%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 85% 89%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 51%,
-      transparent 51%,
-      transparent 52%,
-      transparent 52%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 6% 90%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 53%,
-      transparent 53%,
-      transparent 64%,
-      transparent 64%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 35% 75%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 6%,
-      transparent 6%,
-      transparent 98%,
-      transparent 98%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 56% 75%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 16%,
-      transparent 16%,
-      transparent 23%,
-      transparent 23%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 42% 0%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 3%,
-      transparent 3%,
-      transparent 26%,
-      transparent 26%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 29% 28%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 51%,
-      transparent 51%,
-      transparent 75%,
-      transparent 75%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 77% 21%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 35%,
-      transparent 35%,
-      transparent 55%,
-      transparent 55%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at 65% 91%,
-      hsla(329, 0%, 99%, 0.05) 0%,
-      hsla(329, 0%, 99%, 0.05) 46%,
-      transparent 46%,
-      transparent 76%,
-      transparent 76%,
-      transparent 100%
-    ),
-    linear-gradient(45deg, rgb(83, 91, 235), rgb(76, 11, 174));
-}
-
 .logo {
   font-size: 40px;
   padding: 40px;
   color: #fff;
 }
-
 .logo span { color: #d882fa;}
 
+/* .child {
+  position: absolute;
+} */
 .navigation {
   position: relative;
 }
@@ -108,12 +23,12 @@ body {
 }
 
 .navigation__button {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #fff;
+  /* background: #fff; */
   position: fixed;
-  top: 40px;
+  top: 5px;
   right: 40px;
   z-index: 2000;
   /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
@@ -121,15 +36,19 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
-
+#parent {
+  position: fixed;
+  background-color: rgb(67, 56, 202);
+  z-index: 3333;
+}
 .navigation__background {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: rgb(67, 56, 202);
   /* background-image: radial-gradient(#5e0094, #003494); */
   position: fixed;
-  top: 45px;
+  top: 10px;
   right: 45px;
   z-index: 1000;
   transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
@@ -171,7 +90,7 @@ body {
 }
 
 .navigation__link:hover {
-  color: #a275f7;
+  color: #FFFee2;
   transform: translateX(10px);
 }
 .navigation__checkbox:checked ~ .navigation__background {
@@ -192,7 +111,7 @@ body {
 .navigation__icon::after {
   width: 40px;
   height: 3px;
-  background: #ad88f1;
+  background: #FFF;
   display: inline-block;
 }
 .navigation__icon::before,

@@ -7,6 +7,8 @@ import { SharedService } from '../services/shared.service';
 import { ApplicationService } from '../services/application.service';
 import { Application } from '../services/Application';
 import { NgForm } from '@angular/forms';
+import { CandidatService } from '../services/candidat.service';
+import { Candidat } from '../services/Candidat';
 
 @Component({
   selector: 'app-application-form',
@@ -32,9 +34,16 @@ export class ApplicationFormComponent implements OnInit {
     recruteur_id: undefined
   }
 
+  public candidatToAdd: Candidat = {
+    id: 0,
+   username: '',
+   email:'',
+   password:''
+  }
+
   message : any
 
-  constructor(public modalRef: BsModalRef, private shared: SharedService, private applicationService: ApplicationService) {}
+  constructor(public modalRef: BsModalRef, private shared: SharedService, private applicationService: ApplicationService, private candidatService: CandidatService) {}
   ngOnInit(): void {
     this.message = this.shared.getMessage();
     console.log(this.message);
@@ -47,6 +56,14 @@ export class ApplicationFormComponent implements OnInit {
 
   public addApplication(addApplicationForm: NgForm) {
     document.getElementById('close-modal')?.click();
+    this.candidatService.addCandidat(addApplicationForm.value).subscribe(
+      (response: Candidat) => {
+        console.log("the response "+response);
+        console.log("in addApplication candidatToAdd ===========> "+this.candidatToAdd);
+      }, (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
     this.applicationService.addApplication(addApplicationForm.value).subscribe(
       (response: Application) => {
         console.log("the response "+response);

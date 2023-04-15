@@ -80,22 +80,6 @@ public class AuthService {
 
     public ResponseEntity<AuthenticationResponse> authenticate(AuthenticationRequest request) {
 
-//            authenticationManager.authenticate(
-//                    new UsernamePasswordAuthenticationToken(
-//                            request.getEmail(),
-//                            request.getPassword()
-//                    )
-//            );
-
-      //  ---------------------------------------------
-//        var user = recruteurRepository.findByEmail(request.getEmail())
-//                .orElseThrow();
-//        var jwtToken = jwtHandler.generateToken(user);
-//        return AuthenticationResponse.builder()
-//                .token(jwtToken)
-//                .build();
-
-//
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         headers.set("Authorization", "Basic " + generateAccessToken());

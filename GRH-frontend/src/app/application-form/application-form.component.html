@@ -1,5 +1,5 @@
-<div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+<div class="modal-header mt-5">
+    <h4 class="modal-title pull-left">Postuler pour l'offre :</h4>
     <button type="button" class="btn-close close pull-right" id="close-modal" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
@@ -25,12 +25,12 @@
                 <input  class="form-control" type="text"  placeholder="" #contrat [(ngModel)]="message.contrat"  name="contrat" autocomplete="off" />
             </div>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label>Ville</label>
             <div class="input-group">
-                <input class="form-control" #ville placeholder="Rabat" type="text"  name="ville" autocomplete="off" />
+                <input class="form-control" ngModel #username placeholder="username" type="text"  name="username" autocomplete="off" />
             </div>
-        </div>
+        </div> -->
         <div class="mb-3">
             <label>Année d'expérience</label>
             <div class="form-group">
@@ -44,10 +44,11 @@
                     <option>plus de 5</option>
                 </select>
               </div>
-        </div>
+         </div>
         <div class="mb-3">
-            <input class="form-control" #offreId type="text" [(ngModel)]="message.id" ngModel  name="offreId" autocomplete="off" value="{{message.id}}" />
-            <input class="form-control" #offreId type="text"  name="offreId" autocomplete="off" value="" />
+            <input class="form-control" #offreId type="hidden" [(ngModel)]="message.id" ngModel  name="offreId" autocomplete="off" value="{{message.id}}" />
+            <label>Email</label>
+            <input class="form-control" ngModel #email type="email"  name="email" autocomplete="off" />
         </div>
         <button type="submit" class="btn btn-outline-dark">Save</button>
     </form>

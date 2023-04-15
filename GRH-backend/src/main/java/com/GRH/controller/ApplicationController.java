@@ -35,7 +35,6 @@ public class ApplicationController {
         Application savedApplication = applicationService.createApplication(application);
         response = new HttpResponse(OK.value(),savedApplication , "one application was added Successfully");
         log.info("in controller saved ======== "+savedApplication);
-        applicationService.processSms();
         return new ResponseEntity<>(response, CREATED);
     }
 

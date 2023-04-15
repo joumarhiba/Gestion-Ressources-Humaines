@@ -14,6 +14,7 @@ export class EspaceRecruteurComponent implements OnInit {
   uploaded : number = 0
   result : any
   trashedApplication : any
+  searchText : any
 
   constructor(private applicationService: ApplicationService) {}
   ngOnInit(): void {

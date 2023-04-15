@@ -15,6 +15,7 @@ import { ApplicationFormComponent } from './application-form/application-form.co
 import { ModalModule  } from 'ngx-bootstrap/modal';
 import { EspaceRecruteurComponent } from './espace-recruteur/espace-recruteur.component';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    Ng2SearchPipeModule,
     OAuthModule.forRoot(),
     ModalModule.forRoot(),
   ],

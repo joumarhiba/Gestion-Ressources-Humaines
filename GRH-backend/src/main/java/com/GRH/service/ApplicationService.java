@@ -29,10 +29,8 @@ import java.util.stream.Collectors;
 public class ApplicationService {
     private final ApplicationRepo applicationRepo;
     private final ApplicationMapper applicationMapper;
-//
 
     public Application createApplication(Application application){
-
         application.setStatus("Reçu");
         Application applicationSaved = applicationRepo.save(application);
         return applicationSaved;
@@ -86,6 +84,9 @@ public class ApplicationService {
         }
         return uploadedApplication * 100 / allApplication ;
     }
+
+
+
 
 
     @Value("${TWILIO_SID}")

@@ -19,3 +19,11 @@ tr td:nth-child(1),
 tr th:nth-child(1) {
     border-radius: .625rem 0 0 .625rem;
 }
+.Margin {
+    margin-top: 10%;
+}
+
+.input-search {
+    width: 40%;
+    margin:4% 10% -2%;
+}
